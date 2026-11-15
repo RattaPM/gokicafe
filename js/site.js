@@ -2,6 +2,24 @@
 (function () {
   "use strict";
 
+  /* ---- intro loader (once per session, skippable) ---- */
+  (function () {
+    var loader = document.getElementById("goki-loader");
+    if (!loader) return;
+    var html = document.documentElement;
+    function finish() {
+      if (!loader) return;
+      html.classList.remove("gl-lock");
+      if (loader.parentNode) loader.parentNode.removeChild(loader);
+      loader = null;
+    }
+    if (html.classList.contains("gl-skip")) { finish(); return; }
+    try { sessionStorage.setItem("gokiSeen", "1"); } catch (e) {}
+    loader.addEventListener("animationend", function (e) { if (e.target === loader) finish(); });
+    loader.addEventListener("click", finish);
+    setTimeout(finish, 4200);
+  })();
+
   /* ---- mobile sheet ---- */
   var toggle = document.querySelector(".nav__toggle");
   var sheet = document.querySelector(".sheet");
