@@ -20,6 +20,15 @@
     setTimeout(finish, 4200);
   })();
 
+  /* ---- nav: solid cream shelf once scrolled off the hero ---- */
+  (function () {
+    var header = document.querySelector(".site-header");
+    if (!header) return;
+    var onScroll = function () { header.classList.toggle("nav-solid", window.scrollY > 60); };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  })();
+
   /* ---- mobile sheet ---- */
   var toggle = document.querySelector(".nav__toggle");
   var sheet = document.querySelector(".sheet");
