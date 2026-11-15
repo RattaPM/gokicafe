@@ -479,9 +479,12 @@ a:hover .frame img,.card:hover .frame img,.zoom:hover img{transform:scale(1.045)
   .mobilebar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.4em;
     font-family:var(--sans);font-weight:700;font-size:1.02rem;text-decoration:none;border-radius:999px;
     padding:.82em 1em;border:1.6px solid transparent;white-space:nowrap}
-  .mobilebar .mb-primary{background:var(--apron);color:var(--cream)}
-  .mobilebar .mb-ghost{background:var(--cream);color:var(--ink);border-color:var(--ink)}
-  .site-footer{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+  .mobilebar{gap:0}
+  .mobilebar a{border-radius:0;font-weight:700}
+  .mobilebar .mb-ghost{background:transparent;color:var(--ink)}
+  .mobilebar .mb-primary{background:transparent;color:var(--apron);font-weight:800;border-left:1.5px solid var(--line)}
+  .mobilebar .mb-primary .arr{color:var(--terra)}
+  .site-footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 }
 
 /* ==========================================================================
@@ -530,14 +533,16 @@ a:hover .frame img,.card:hover .frame img,.zoom:hover img{transform:scale(1.045)
   .hero__media .big img{object-position:center 42%}
   .hero__media .badge{top:-12px;right:2px;width:86px;height:86px}
   .hero__rating{left:10px;top:10px}
-  /* lighter, backgroundless hero buttons on mobile */
-  .hero__cta .btn--primary{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .hero__cta .btn--primary:hover{background:var(--ink);color:var(--cream)}
+  /* tighter hero so the food photo reaches the fold sooner on phones */
+  .hero{padding-block:16px 30px}
+  .hero__title{font-size:clamp(2.1rem,8.7vw,3.3rem)}
+  .hero__lead{margin-top:1rem;max-width:34ch}
+  .hero__cta{margin-top:1.3rem}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:540px){
-  .hero__cta{flex-direction:column;align-items:stretch;gap:.7rem}
-  .hero__cta .btn{width:100%;justify-content:center}
+  .hero__cta{gap:.6rem;flex-wrap:wrap}
+  .hero__cta .btn{flex:1 1 140px;justify-content:center;font-size:1rem;padding:.92em 1em}
 }
 @media (max-width:460px){
   body{font-size:16px}
