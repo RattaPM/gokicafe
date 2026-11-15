@@ -173,6 +173,17 @@ body.unslop .hero__media{animation:heroRise .6s .09s var(--ease) both}
   .hero-g .stamp{width:72px;height:72px;top:78px;right:14px}
   .hero-g__lead{max-width:40ch}
 }
+/* stacked layout: give the big "Goki" watermark room so it clears the
+   eyebrow + heading instead of printing straight through them */
+@media (max-width:1040px){
+  body.unslop .split .bigword{padding-top:clamp(2.4rem,11vw,3.6rem)}
+  body.unslop .split .bigword .ghost{top:-.16em;left:-.02em}
+}
+@media (max-width:560px){
+  body.unslop .split .bigword{padding-top:3.3rem}
+  body.unslop .split .bigword .ghost{font-size:clamp(3.2rem,16vw,4.4rem);top:-.26em}
+}
+
 @media (prefers-reduced-motion:reduce){
   .hero-g .stamp svg{animation:none}
   .hero-g__see .btn-circle path{animation:none;stroke-dashoffset:0}
