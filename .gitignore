@@ -1,0 +1,8 @@
+# Local tooling / build artifacts
+.claude/
+.taste-skill/
+shots/
+
+# OS cruft
+Thumbs.db
+.DS_Store
