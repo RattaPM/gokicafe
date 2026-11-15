@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Goki's Café  ·  home redesign (unslop pass, scoped to .unslop)
+   Loaded only on index.html so the subpages stay untouched until approved.
+   Direction: warm, hand-made, minimal-modern. Condensed Teko titles, light
+   weights, one accent (terracotta), quiet chrome, the food as the moment,
+   the swirl medallion as the signature.
+   ========================================================================== */
+
+/* ---- tokens: re-skin via the cascade ---- */
+body.unslop{
+  --serif:"Teko","Oswald","Arial Narrow",sans-serif;
+  --line:rgba(42,32,22,.10);
+  --line-soft:rgba(42,32,22,.06);
+  --r:16px;
+  --r-sm:12px;
+  --btn-r:12px;
+}
+
+/* ---- 5. Type: Teko condensed titles, hierarchy from size and colour ---- */
+body.unslop .display,
+body.unslop h1,
+body.unslop h2{
+  font-weight:400;
+  letter-spacing:.01em;
+  line-height:.96;
+  font-variation-settings:normal;
+}
+/* Teko sits small for its point size, so titles run larger than the serif did */
+body.unslop h2{font-size:clamp(2.6rem,5.4vw,4.4rem);line-height:.9}
+body.unslop .hero__title{font-weight:400;font-size:clamp(3.6rem,7.8vw,7rem);line-height:.9}
+body.unslop .hero__title .em{color:var(--terra)}
+body.unslop .serif-it{font-weight:400;color:inherit}
+body.unslop h3{font-weight:600;letter-spacing:-.005em}
+
+/* logo wordmark stays a clean sans so it reads as a mark, not a headline */
+body.unslop .brand__word{font-family:var(--sans);font-weight:700;letter-spacing:.02em}
+
+/* ---- 4/5. Eyebrows: sentence case, Figtree, one accent, keep the dot ---- */
+body.unslop .eyebrow{
+  font-family:var(--sans);
+  font-weight:600;
+  text-transform:none;
+  letter-spacing:.005em;
+  font-size:.92rem;
+  color:var(--terra);
+}
+body.unslop .mcard__eyebrow{text-transform:none}
+
+/* condensed category label above each dish */
+body.unslop .klabel{font-weight:400;letter-spacing:.02em;font-size:1.6rem;line-height:1}
+
+/* ---- 2. Colour: lighter hairlines, calmer rating chip ---- */
+body.unslop .sticker{transform:none}
+body.unslop .nav__links a::after{height:2px}
+
+/* ---- 7. Details: radius by size, not everything a pill ---- */
+body.unslop .btn{border-radius:var(--btn-r)}
+body.unslop .rbadge{border-radius:10px}
+
+/* ---- 9. Motion: no forever-spin; medallion turns only on hover ---- */
+body.unslop .badge svg{animation:none}
+body.unslop .hero__media:hover .badge svg{animation:spin 20s linear infinite}
+body.unslop a:hover .frame img,
+body.unslop .card:hover .frame img,
+body.unslop .zoom:hover img{transform:scale(1.03)}
+
+/* one entrance on load: a short fade and rise, small stagger, nothing else */
+body.unslop .hero__text{animation:heroRise .6s var(--ease) both}
+body.unslop .hero__media{animation:heroRise .6s .09s var(--ease) both}
+@keyframes heroRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  body.unslop .hero__text,
+  body.unslop .hero__media{animation:none}
+  body.unslop .hero__media:hover .badge svg{animation:none}
+}
+
+/* keep the phone hero compact (our scoped size outranks the global mobile rule) */
+@media (max-width:760px){
+  body.unslop .hero__title{font-size:clamp(3rem,12.5vw,4.6rem);line-height:.9}
+  body.unslop h2{font-size:clamp(2.4rem,9vw,3.4rem);line-height:.92}
+}
